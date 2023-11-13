@@ -51,7 +51,6 @@ char * get_autores(Libro l){
 	return aux;
 }
     
-
 void set_cant_pag(Libro *l, int cant_paginas){
     l->cant_paginas = cant_paginas;
 }

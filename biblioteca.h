@@ -6,51 +6,47 @@ void crearBiblioteca (Biblioteca * b){
 	crearLista(b);
 }
 
-void altaLibro (Biblioteca * b){
-    Libro l;
-    crearLibro(&l);
-    leerLibro(&l);
+void altaLibro (Biblioteca * b, Libro l){
     if(!existeLibro(*b, l))
         insertarDespues(b, l);
 }
 
 void bajaLibro (Biblioteca * b, Libro l){
     if(existeLibro(*b, l)){
-        setActual(b, l);
         eliminar(b);
     }
 }
 
-void modificarLibro (Biblioteca * b, Libro l){
-    
+void modificarLibro(Biblioteca * b, Libro l){
+    if(existeLibro(*b, l)){
+        eliminar(b);
+        leerLibro(&l);
+        insertarDespues(b, l);
+    }
 }
 
 boolean existeLibro(Biblioteca b, Libro l){
     boolean existe = 0;
-    Libro aux;
-    crearLibro(&aux);
+    primero(&b);
     while(!esUltimo(b) && !existe){
-        leerLibro(&aux);
-        existe = comparaLibro(l, aux);
+        existe = comparaLibro(l, getDato(b));
+        siguiente(&b);
     }
-    return existe;
 }
 
 
 void listarAutores(Biblioteca b){
-    Libro l;
-    crearLibro(&l);
+    primero(&b);
     while(!esUltimo(b)){
-        leerLibro(&l);
-        printf("%s\n", get_autores(l));
+        printf("%s\n", get_autores(getDato(b)));
+        siguiente(&b);
     }
 }
 
-void listarLibros(Biblioteca b){
-    Libro l;
-    crearLibro(&l);
+void listarTitulos(Biblioteca b){
+    primero(&b);
     while(!esUltimo(b)){
-        leerLibro(&l);
-        printf("%s\n", get_titulo(l));
+        printf("%s\n", get_titulo(getDato(b)));
+        siguiente(&b);
     }
 }
