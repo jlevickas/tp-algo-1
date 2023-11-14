@@ -99,11 +99,8 @@ char * toString(Libro l){
 
 void leerLibro(Libro *l){
     char titulo[100];
-    printf("Ingrese el titulo del libro: ");
-    fgets(titulo, sizeof(titulo), stdin);
-    titulo[strlen(titulo)-1] = '\0';
+    leerCadena(titulo, "Ingrese el titulo: ");
     strcpy(l->titulo, titulo);
-    getchar();
 
     char autor[300];
     printf("Ingrese la cantidad de autores (1-3): ");
@@ -115,9 +112,7 @@ void leerLibro(Libro *l){
     int i;
     for(i=0; i<cant_autores; i++){
         char autor[100];
-        printf("Ingrese un autor: ");
-        fgets(autor, sizeof(autor), stdin);
-        autor[strlen(autor)-1] = '\0';
+        leerCadena(autor, "Ingrese un autor: ");
         strcat(l->autores, autor);
         if (i < cant_autores - 1) {
             strcat(l->autores, ", ");
@@ -137,15 +132,11 @@ void leerLibro(Libro *l){
     getchar();
 
     char editorial[100];
-    printf("Ingrese la editorial: ");
-    fgets(editorial, sizeof(editorial), stdin);
-    editorial[strlen(editorial)-1] = '\0';
+    leerCadena(editorial, "Ingrese la editorial: ");
     strcpy(l->editorial, editorial);
      
     char genero[100];
-    printf("Ingrese el genero: ");
-    fgets(genero, sizeof(genero), stdin);
-    genero[strlen(genero)-1] = '\0';
+    leerCadena(genero, "Ingrese el genero: ");
     strcpy(l->genero, genero);
 
 }

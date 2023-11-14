@@ -56,8 +56,8 @@ void main(){
                 char genero[100];
                 char autor[100];
                 int anio1, anio2;
-                opcionListados = menuListados(&b);
                 do {
+                    opcionListados = menuListados(&b);
                     switch(opcionListados){
                         case '0':
                             listarAutores(b);
