@@ -6,6 +6,15 @@ void crearBiblioteca (Biblioteca * b){
 	crearLista(b);
 }
 
+boolean existeLibro(Biblioteca b, Libro l){
+    boolean existe = false;
+    primero(&b);
+    while(!esUltimo(b) && !existe){
+        existe = comparaLibro(l, getDato(b));
+        siguiente(&b);
+    }
+}
+
 void altaLibro (Biblioteca * b, Libro l){
     if(!existeLibro(*b, l))
         insertarDespues(b, l);
@@ -25,11 +34,17 @@ void modificarLibro(Biblioteca * b, Libro l){
     }
 }
 
-boolean existeLibro(Biblioteca b, Libro l){
-    boolean existe = 0;
+void seleccionarLibro(Biblioteca b, Libro *l){
+    int ISBN;
+    printf("Ingrese el ISBN del libro que desea buscar: ");
+    scanf("%d", &ISBN);
     primero(&b);
+    boolean existe = false;
     while(!esUltimo(b) && !existe){
-        existe = comparaLibro(l, getDato(b));
+        if(get_ISBN(getDato(b)) == ISBN){
+            *l = getDato(b);
+            existe = true;
+        }
         siguiente(&b);
     }
 }

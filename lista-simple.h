@@ -29,12 +29,6 @@ void crearLista(Lista * l){
 	l->cantidad = 0;
 }
 
-void posicionar(Lista *l, int x){
-	primero(l);
-	for (int i = 0; i < x; ++i){
-		siguiente(l);
-	}
-}
 
 void primero(Lista * l){
 	 l->actual = l->com->sig;
@@ -63,6 +57,13 @@ void anterior (Lista * l){
 		p = p->sig;
 	}
 	l->actual = p;
+}
+
+void posicionar(Lista *l, int x){
+	primero(l);
+	for (int i = 0; i < x; ++i){
+		siguiente(l);
+	}
 }
 
 void insertarDespues(Lista * l, T x){

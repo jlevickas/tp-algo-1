@@ -103,12 +103,13 @@ void leerLibro(Libro *l){
     fgets(titulo, sizeof(titulo), stdin);
     titulo[strlen(titulo)-1] = '\0';
     strcpy(l->titulo, titulo);
+    getchar();
 
     char autor[300];
     printf("Ingrese la cantidad de autores (1-3): ");
 
     int cant_autores;
-    scanf("%d", &cant_autores);
+    scanf(" %d", &cant_autores);
     getchar();
 
     int i;
