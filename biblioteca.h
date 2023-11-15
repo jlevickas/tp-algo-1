@@ -101,7 +101,7 @@ void listarGenero(Biblioteca * b, char* generoDeseado) {
         char* generoActual = get_genero(libroActual);
 
         if (strcmp(generoActual, generoDeseado) == 0) {
-            printf("Libro : %s\n", toString(libroActual));
+            printf("Libro: %s\n", toString(libroActual));
             printf("\n");
         }
 
@@ -121,7 +121,7 @@ void listarAutor(Biblioteca * b, char* autorDeseado) {
 
         while (autor != NULL){
             if (strcmp(autor, autorDeseado) == 0){
-                printf("Libro : %s\n", toString(libro));
+                printf("Libro: %s\n", toString(libro));
                 printf("\n");
             }
             autor = strtok(NULL, delimitador);
@@ -138,7 +138,7 @@ void listarEditorial(Biblioteca * b, char* editorialDeseada) {
         char* editorialActual = get_editorial(libroActual);
 
         if (strcmp(editorialActual, editorialDeseada) == 0) {
-            printf("Libro : %s\n", toString(libroActual));
+            printf("Libro: %s\n", toString(libroActual));
             printf("\n");
         }
 
@@ -155,7 +155,7 @@ void listarEditorialPorEdicion(Biblioteca * b, char* editorialDeseada, int anio1
 
         if (strcmp(editorialActual, editorialDeseada) == 0) {
             if(get_anio_edicion(libroActual)<=anio2 && get_anio_edicion(libroActual)>=anio1){
-                printf("Libro : %s\n", toString(libroActual));
+                printf("Libro: %s\n", toString(libroActual));
                 printf("\n");
             }
         }
@@ -186,7 +186,7 @@ void listarPorAnioEdicion(Biblioteca * b, int anioDeseado) {
         Libro libroActual = getDato(*b);
 
         if (get_anio_edicion(libroActual) == anioDeseado)
-           printf("Título: %s\nAutor: %s\nGénero: %s\nAño de edición: %d\n\n", get_titulo(libroActual), get_autores(libroActual), get_genero(libroActual), get_anio_edicion(libroActual));
+           printf("Libro: %d\n",  toString(libroActual));
         }
 
         siguiente(b);
@@ -226,7 +226,7 @@ void listarPorPalabraEnTitulo(Biblioteca *b, char *palabradeseada) {
         while (token != NULL) {
             
             if (strstr(token, palabradeseada)) {
-               printf("Título: %s\nAutor: %s\nGénero: %s\nAño de edición: %d\n\n", get_titulo(libroActual), get_autores(libroActual), get_genero(libroActual), get_anio_edicion(libroActual));
+               printf("Libro: %d\n", toString(libroActual));
                break;  
                }
 

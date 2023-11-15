@@ -96,15 +96,15 @@ void main(){
                         case '7':
                             printf("Ingrese el anio deseado: ");
                             scanf("%d", &anio1);
-                            listarLibrosAnio(&b, anio);
+                           listarPorAnioEdicion(&b, anio);
                             break;
                         case '8':
                             leerChar(letra, "Ingrese la letra: ");
-                            listarAutoresLetra(&b, letra);
+                            listarAutoresPorLetra(&b, letra);
                             break;
                         case '9':
                             leerCadena(palabra, 100, "Ingrese la palabra: ");
-                            listarLibrosPalabra(&b,palabra);
+                            listarPorPalabraEnTitulo(&b,palabra);
                             break;
                     }
                 } while (opcionListados != 'v' && opcionListados != 'V');
