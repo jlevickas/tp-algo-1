@@ -37,18 +37,18 @@ void main(){
                 break;
             case 'b':
             case 'B':
-                seleccionarLibro(b, &l);
+                seleccionarLibro(&b, &l);
                 bajaLibro(&b, l);
                 break;
             case 'c':
             case 'C':
                 char titulo[100];
                 leerCadena(titulo, "Ingrese el titulo del libro a buscar: ");
-                buscarLibro(b, titulo);
+                buscarLibro(&b, titulo);
                 break;
             case 'm':
             case 'M':
-                seleccionarLibro(b, &l);
+                seleccionarLibro(&b, &l);
                 modificarLibro(&b, l);
                 break;
             case 'l':
@@ -62,22 +62,22 @@ void main(){
                     opcionListados = menuListados(&b);
                     switch(opcionListados){
                         case '0':
-                            listarAutores(b);
+                            listarAutores(&b);
                             break;
                         case '1':
-                            listarTitulos(b);
+                            listarTitulos(&b);
                             break;
                         case '2':
                             leerCadena(genero, "Ingrese el genero: ");
-                            listarGenero(b, genero);
+                            listarGenero(&b, genero);
                             break;
                         case '3':
                             leerCadena(autor, "Ingrese el autor: ");
-                            listarAutor(b, autor);
+                            listarAutor(&b, autor);
                             break;
                         case '4':
                             leerCadena(editorial, "Ingrese la editorial: ");
-                            listarEditorial(b, editorial);
+                            listarEditorial(&b, editorial);
                             break;
                         case '5':
                             leerCadena(editorial, "Ingrese la editorial: ");
@@ -85,7 +85,7 @@ void main(){
                             scanf("%d", &anio1);
                             printf("Ingrese el anio final: ");
                             scanf("%d", &anio2);
-                            listarEditorialPorEdicion(b, editorial, anio1, anio2);
+                            listarEditorialPorEdicion(&b, editorial, anio1, anio2);
                             break;
 /*                         case '6':
                             listarAutoresEditorial(&b);

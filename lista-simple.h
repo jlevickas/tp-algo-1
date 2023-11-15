@@ -29,7 +29,6 @@ void crearLista(Lista * l){
 	l->cantidad = 0;
 }
 
-
 void primero(Lista * l){
 	 l->actual = l->com->sig;
 }
@@ -93,22 +92,6 @@ void eliminar(Lista * l){
 	(l->cantidad)--;
 }
 
-/* void buscar(Lista * l, T x){
-	// NO FUNCIONA CON TDA ALUMNO XQ NO SE PUEDE COMPARAR.
-	// PODRÍA FUNCIONAR SI SE COMPARA POR MATRICULA
-	primero(l);
-	while (l->actual->dato != x){
-		siguiente(l);
-	}
-} */
-
-void copiar(Lista * l1, Lista * l2){
-	primero(l1);
-	while (!esUltimo(*l1)){
-		insertarDespues(l2, getDato(*l1));
-		siguiente(l1);
-	}
-}
 
 Nodo * getActual(Lista l){
 	return l.actual;
