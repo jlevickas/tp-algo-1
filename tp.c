@@ -57,7 +57,7 @@ void main(){
                 char editorial[100];
                 char genero[100];
                 char autor[100];
-                int anio1, anio2;
+                int anio, anio1, anio2;
                 do {
                     opcionListados = menuListados(&b);
                     switch(opcionListados){
@@ -92,7 +92,8 @@ void main(){
                             listarAutoresEditorial(&b, editorial);
                             break;
                         case '7':
-                            leerCadena(anio, "Ingrese el anio: ");
+                            printf("Ingrese el anio deseado: ");
+                            scanf("%d", &anio1);
                             listarLibrosAnio(&b, anio);
                             break;
                         case '8':

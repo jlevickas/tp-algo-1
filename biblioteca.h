@@ -164,32 +164,32 @@ void listarEditorialPorEdicion(Biblioteca * b, char* editorialDeseada, int anio1
 }
 
 //septimo
-void listarAutoresEditorial(Biblioteca b, char *editorialDeseada) {
-    primero(&b);
+void listarAutoresEditorial(Biblioteca * b, char *editorialDeseada) {
+    primero(b);
     
-    while (!esUltimo(b)) {
+    while (!esUltimo(*b)) {
         Libro libroActual = getDato(b);
         
         if (strcmp(libroActual.editorial, editorialDeseada) == 0) {
             printf("Autor: %s\n", libroActual.autor);
         }
 
-        siguiente(&b);
+        siguiente(b);
     }
 }
 
 //octavo
-void listarPorAnioEdicion(Biblioteca b, int anioDeseado) {
-    primero(&b);
+void listarPorAnioEdicion(Biblioteca * b, int anioDeseado) {
+    primero(b);
 
-    while (!esUltimo(b)) {
+    while (!esUltimo(*b)) {
         Libro libroActual = getDato(b);
 
         if (libroActual.anioEdicion == anioDeseado)
            printf("Título: %s\nAutor: %s\nGénero: %s\nAño de edición: %d\n\n", libroActual.titulo, libroActual.autor, libroActual.genero, libroActual.anioEdicion);
         }
 
-        siguiente(&b);
+        siguiente(b);
     }
 
 //noveno
@@ -213,10 +213,10 @@ void listarAutoresPorLetra(Biblioteca *b, char letra) {
 }
 
 //decimo
-void listarPorPalabraEnTitulo(Biblioteca b, char *palabradeseada) {
-    primero(&b);
+void listarPorPalabraEnTitulo(Biblioteca *b, char *palabradeseada) {
+    primero(b);
 
-    while (!esUltimo(b)) {
+    while (!esUltimo(*b)) {
         Libro libroActual = getDato(b);
 
         char titulo[100];
@@ -234,6 +234,6 @@ void listarPorPalabraEnTitulo(Biblioteca b, char *palabradeseada) {
             token = strtok(NULL, " ");
         }
 
-        siguiente(&b);
+        siguiente(b);
     }
 }
