@@ -168,10 +168,10 @@ void listarAutoresEditorial(Biblioteca * b, char *editorialDeseada) {
     primero(b);
     
     while (!esUltimo(*b)) {
-        Libro libroActual = getDato(b);
+        Libro libroActual = getDato(*b);
         
-        if (strcmp(libroActual.editorial, editorialDeseada) == 0) {
-            printf("Autor: %s\n", libroActual.autor);
+        if (strcmp(get_editorial(libroActual), editorialDeseada) == 0) {
+            printf("Autor: %s\n", get_autores(libroActual));
         }
 
         siguiente(b);
@@ -183,10 +183,10 @@ void listarPorAnioEdicion(Biblioteca * b, int anioDeseado) {
     primero(b);
 
     while (!esUltimo(*b)) {
-        Libro libroActual = getDato(b);
+        Libro libroActual = getDato(*b);
 
-        if (libroActual.anioEdicion == anioDeseado)
-           printf("Título: %s\nAutor: %s\nGénero: %s\nAño de edición: %d\n\n", libroActual.titulo, libroActual.autor, libroActual.genero, libroActual.anioEdicion);
+        if (get_anio_edicion(libroActual) == anioDeseado)
+           printf("Título: %s\nAutor: %s\nGénero: %s\nAño de edición: %d\n\n", get_titulo(libroActual), get_autores(libroActual), get_genero(libroActual), get_anio_edicion(libroActual));
         }
 
         siguiente(b);
@@ -217,17 +217,16 @@ void listarPorPalabraEnTitulo(Biblioteca *b, char *palabradeseada) {
     primero(b);
 
     while (!esUltimo(*b)) {
-        Libro libroActual = getDato(b);
+        Libro libroActual = getDato(*b);
 
         char titulo[100];
-        strcpy(titulo, libroActual.titulo);
+        strcpy(titulo, get_titulo(libroActual));
         char *token = strtok(titulo, " ");
 
         while (token != NULL) {
             
-            if (strstr(token, palabraClave)) {
-               printf("Título: %s\nAutor: %s\nGénero: %s\nAño de edición: %d\n\n",
-               libroActual.titulo, libroActual.autor, libroActual.genero, libroActual.anioEdicion);
+            if (strstr(token, palabradeseada)) {
+               printf("Título: %s\nAutor: %s\nGénero: %s\nAño de edición: %d\n\n", get_titulo(libroActual), get_autores(libroActual), get_genero(libroActual), get_anio_edicion(libroActual));
                break;  
                }
 

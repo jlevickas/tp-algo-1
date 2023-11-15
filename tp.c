@@ -57,6 +57,8 @@ void main(){
                 char editorial[100];
                 char genero[100];
                 char autor[100];
+                char letra;
+                char palabra[100];
                 int anio, anio1, anio2;
                 do {
                     opcionListados = menuListados(&b);
@@ -97,11 +99,11 @@ void main(){
                             listarLibrosAnio(&b, anio);
                             break;
                         case '8':
-                            leerCadena(letra, "Ingrese la letra: ");
+                            leerChar(letra, "Ingrese la letra: ");
                             listarAutoresLetra(&b, letra);
                             break;
                         case '9':
-                            leerCadena(palabra, "Ingrese la palabra: ");
+                            leerCadena(palabra, 100, "Ingrese la palabra: ");
                             listarLibrosPalabra(&b,palabra);
                             break;
                     }
