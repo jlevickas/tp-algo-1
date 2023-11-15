@@ -145,3 +145,10 @@ void listarEditorialPorEdicion(Biblioteca b, char* editorialDeseada, int anio1, 
         siguiente(&b);
     }
 }
+
+void listarAutoresPorLetra(Biblioteca b, char letra){
+    primero(&b)
+    while (!esUltimo(b)){
+        char * autores = get_autores(getDato(b));
+    }
+}

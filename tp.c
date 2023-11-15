@@ -6,6 +6,7 @@
 #include "biblioteca.h"
 
 char menuPrincipal(){
+    printf("---------------------------------------------\n");
 	printf("A: Dar de Alta un Libro\nB: Dar de Baja un Libro\nC: Consultar por un libro por su titulo\nM: Modificar un Libro\nL: Ingresar al menu de Listados\nS: Salir del programa");
 	printf("\nIngrese opcion: ");
 	fflush(stdin);
@@ -13,6 +14,7 @@ char menuPrincipal(){
 }
 
 char menuListados(){
+    printf("---------------------------------------------\n");
     printf("0: Listar todos los autores existentes\n1: Listar todos los libros existentes\n2: Listar todos los libros de un genero\n3: Listar todos los libros de un autor\n4: Listar todos los libros de una editorial\n5: Listar todos los libros de una editorial en un rango de anios\n6: Listar todos los autores de una editorial\n7: Listar todos los libros editados en determinado anio\n8: Listar todos los autores cuyo apellido empieza con determinada letra\n9: Listar todos los libros cuyos titulos contengan una palabra\nV: Volver al menu principal");
     printf("\nIngrese opcion: ");
     fflush(stdin);
