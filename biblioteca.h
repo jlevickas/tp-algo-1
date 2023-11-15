@@ -145,3 +145,19 @@ void listarEditorialPorEdicion(Biblioteca b, char* editorialDeseada, int anio1, 
         siguiente(&b);
     }
 }
+
+void listarAutoresPorLetra(Biblioteca b, char letra){
+    primero(&b);
+    while (!esUltimo(b)){
+        Libro libro = getDato(b);
+        char * autores = get_autores(libro);
+        char delimitador = ',';
+
+        char autor = strtok(autores, delimitador);
+
+        while (autor != NULL){
+            if (autor[0] == letra)
+                printf("%s", autor);
+        }
+    }
+}
