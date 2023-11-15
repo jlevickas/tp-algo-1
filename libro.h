@@ -99,7 +99,7 @@ char * toString(Libro l){
 
 void leerLibro(Libro *l){
     char titulo[100];
-    leerCadena(titulo, "Ingrese el titulo: ");
+    leerCadena(titulo, 100, "Ingrese el titulo: ");
     strcpy(l->titulo, titulo);
 
     char autor[300];
@@ -112,7 +112,7 @@ void leerLibro(Libro *l){
     int i;
     for(i=0; i<cant_autores; i++){
         char autor[100];
-        leerCadena(autor, "Ingrese un autor: ");
+        leerCadena(autor, 100, "Ingrese un autor: ");
         strcat(l->autores, autor);
         if (i < cant_autores - 1) {
             strcat(l->autores, ", ");
@@ -132,11 +132,11 @@ void leerLibro(Libro *l){
     getchar();
 
     char editorial[100];
-    leerCadena(editorial, "Ingrese la editorial: ");
+    leerCadena(editorial, 100, "Ingrese la editorial: ");
     strcpy(l->editorial, editorial);
      
     char genero[100];
-    leerCadena(genero, "Ingrese el genero: ");
+    leerCadena(genero, 100, "Ingrese el genero: ");
     strcpy(l->genero, genero);
 
 }

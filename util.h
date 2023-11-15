@@ -9,10 +9,10 @@
 typedef int boolean;
 
 
-char * leerCadena(char * c, char * msg){
+char * leerCadena(char * c, int size, char * msg){
     printf(msg);
     fflush(stdin);
-    fgets(c, sizeof(c), stdin);
+    fgets(c, size, stdin);
     c[strlen(c)-1] = '\0';
     return c;
 }

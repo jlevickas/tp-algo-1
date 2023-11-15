@@ -43,7 +43,7 @@ void main(){
             case 'c':
             case 'C':
                 char titulo[100];
-                leerCadena(titulo, "Ingrese el titulo del libro a buscar: ");
+                leerCadena(titulo, 100, "Ingrese el titulo del libro a buscar: ");
                 buscarLibro(&b, titulo);
                 break;
             case 'm':
@@ -68,19 +68,19 @@ void main(){
                             listarTitulos(&b);
                             break;
                         case '2':
-                            leerCadena(genero, "Ingrese el genero: ");
+                            leerCadena(genero, 100, "Ingrese el genero: ");
                             listarGenero(&b, genero);
                             break;
                         case '3':
-                            leerCadena(autor, "Ingrese el autor: ");
+                            leerCadena(autor, 100, "Ingrese el autor: ");
                             listarAutor(&b, autor);
                             break;
                         case '4':
-                            leerCadena(editorial, "Ingrese la editorial: ");
+                            leerCadena(editorial, 100, "Ingrese la editorial: ");
                             listarEditorial(&b, editorial);
                             break;
                         case '5':
-                            leerCadena(editorial, "Ingrese la editorial: ");
+                            leerCadena(editorial, 100, "Ingrese la editorial: ");
                             printf("Ingrese el anio inicial: ");
                             scanf("%d", &anio1);
                             printf("Ingrese el anio final: ");

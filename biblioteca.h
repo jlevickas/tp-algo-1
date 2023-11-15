@@ -68,8 +68,17 @@ char * buscarLibro(Biblioteca * b, char* libroDeseado) {
 //primero
 void listarAutores(Biblioteca * b){
     primero(b);
-    while(!esUltimo(*b)){
-        printf("%s\n", get_autores(getDato(*b)));
+    while (!esUltimo(*b)){
+        Libro libro = getDato(*b);
+        char * autores = get_autores(libro);
+        char delimitador[3] = ", ";
+
+        char * autor = strtok(autores, delimitador);
+
+        while (autor != NULL){
+            printf("%s\n", autor);
+            autor = strtok(NULL, delimitador);
+        }
         siguiente(b);
     }
 }
@@ -104,14 +113,19 @@ void listarGenero(Biblioteca * b, char* generoDeseado) {
 void listarAutor(Biblioteca * b, char* autorDeseado) {
     primero(b);
     while (!esUltimo(*b)){
-        Libro libroActual = getDato(*b);
-        char* autorActual = get_autores(libroActual);
+        Libro libro = getDato(*b);
+        char * autores = get_autores(libro);
+        char delimitador[3] = ", ";
 
-        if (strcmp(autorActual, autorDeseado) == 0) {
-            printf("Libro : %s\n", toString(libroActual));
-            printf("\n");
+        char * autor = strtok(autores, delimitador);
+
+        while (autor != NULL){
+            if (strcmp(autor, autorDeseado) == 0){
+                printf("Libro : %s\n", toString(libro));
+                printf("\n");
+            }
+            autor = strtok(NULL, delimitador);
         }
-
         siguiente(b);
     }
 }
