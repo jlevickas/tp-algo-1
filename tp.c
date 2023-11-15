@@ -44,7 +44,7 @@ void main(){
             case 'C':
                 char titulo[100];
                 leerCadena(titulo, 100, "Ingrese el titulo del libro a buscar: ");
-                buscarLibro(&b, titulo);
+                printf("%s\n", buscarLibro(&b, titulo));
                 break;
             case 'm':
             case 'M':
