@@ -87,18 +87,22 @@ void main(){
                             scanf("%d", &anio2);
                             listarEditorialPorEdicion(&b, editorial, anio1, anio2);
                             break;
-/*                         case '6':
-                            listarAutoresEditorial(&b);
+                        case '6':
+                            leerCadena(editorial, 100, "Ingrese la editorial: ");
+                            listarAutoresEditorial(&b, editorial);
                             break;
                         case '7':
-                            listarLibrosAnio(&b);
+                            leerCadena(anio, "Ingrese el anio: ");
+                            listarLibrosAnio(&b, anio);
                             break;
                         case '8':
-                            listarAutoresLetra(&b);
+                            leerCadena(letra, "Ingrese la letra: ");
+                            listarAutoresLetra(&b, letra);
                             break;
                         case '9':
-                            listarLibrosPalabra(&b);
-                            break; */
+                            leerCadena(palabra, "Ingrese la palabra: ");
+                            listarLibrosPalabra(&b,palabra);
+                            break;
                     }
                 } while (opcionListados != 'v' && opcionListados != 'V');
         }        

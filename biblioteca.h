@@ -146,6 +146,7 @@ void listarEditorial(Biblioteca * b, char* editorialDeseada) {
     }
 }
 
+//sexto
 void listarEditorialPorEdicion(Biblioteca * b, char* editorialDeseada, int anio1, int anio2) {
     primero(b);
     while (!esUltimo(*b)){
@@ -162,20 +163,77 @@ void listarEditorialPorEdicion(Biblioteca * b, char* editorialDeseada, int anio1
     }
 }
 
-void listarAutoresPorLetra(Biblioteca * b, char letra){
-    primero(b);
-    while (!esUltimo(*b)){
-        Libro libro = getDato(*b);
-        char * autores = get_autores(libro);
-        char delimitador[3] = ", ";
-
-        char * autor = strtok(autores, delimitador);
-
-        while (autor != NULL){
-            if (autor[0] == letra)
-                printf("%s", autor);
-            autor = strtok(NULL, delimitador);
+//septimo
+void listarAutoresEditorial(Biblioteca b, char *editorialDeseada) {
+    primero(&b);
+    
+    while (!esUltimo(b)) {
+        Libro libroActual = getDato(b);
+        
+        if (strcmp(libroActual.editorial, editorialDeseada) == 0) {
+            printf("Autor: %s\n", libroActual.autor);
         }
+
+        siguiente(&b);
+    }
+}
+
+//octavo
+void listarPorAnioEdicion(Biblioteca b, int anioDeseado) {
+    primero(&b);
+
+    while (!esUltimo(b)) {
+        Libro libroActual = getDato(b);
+
+        if (libroActual.anioEdicion == anioDeseado)
+           printf("Título: %s\nAutor: %s\nGénero: %s\nAño de edición: %d\n\n", libroActual.titulo, libroActual.autor, libroActual.genero, libroActual.anioEdicion);
+        }
+
+        siguiente(&b);
+    }
+
+//noveno
+void listarAutoresPorLetra(Biblioteca *b, char letra) {
+    primero(b);
+
+    while (!esUltimo(*b)) {
+        Libro libro = getDato(*b);
+        char *autores = get_autores(libro);
+        char *autor = strtok(autores, ", ");
+
+        while (autor != NULL) {
+            if (autor[0] == letra) {
+                printf("%s\n", autor);  //
+            }
+            autor = strtok(NULL, ", ");
+        }
+
         siguiente(b);
+    }
+}
+
+//decimo
+void listarPorPalabraEnTitulo(Biblioteca b, char *palabradeseada) {
+    primero(&b);
+
+    while (!esUltimo(b)) {
+        Libro libroActual = getDato(b);
+
+        char titulo[100];
+        strcpy(titulo, libroActual.titulo);
+        char *token = strtok(titulo, " ");
+
+        while (token != NULL) {
+            
+            if (strstr(token, palabraClave)) {
+               printf("Título: %s\nAutor: %s\nGénero: %s\nAño de edición: %d\n\n",
+               libroActual.titulo, libroActual.autor, libroActual.genero, libroActual.anioEdicion);
+               break;  
+               }
+
+            token = strtok(NULL, " ");
+        }
+
+        siguiente(&b);
     }
 }
