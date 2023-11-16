@@ -225,14 +225,13 @@ void listarPorPalabraEnTitulo(Biblioteca *b, char *palabradeseada) {
 
         while (token != NULL) {
             
-            if (strstr(token, palabradeseada)) {
-               printf("Libro: %d\n", toString(libroActual));
+            if (strstr(token, palabradeseada)  != NULL) {
+               printf("Libro: %s\n", toString(libroActual));
                break;  
                }
 
             token = strtok(NULL, " ");
         }
-
         siguiente(b);
     }
 }
