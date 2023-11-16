@@ -44,7 +44,7 @@ void main(){
             case 'C':
                 char titulo[100];
                 leerCadena(titulo, 100, "Ingrese el titulo del libro a buscar: ");
-                printf("%s\n", buscarLibro(&b, titulo));
+                buscarLibro(&b, titulo);
                 break;
             case 'm':
             case 'M':
@@ -95,7 +95,7 @@ void main(){
                             break;
                         case '7':
                             printf("Ingrese el anio deseado: ");
-                            scanf("%d", &anio1);
+                            scanf("%d", &anio);
                            listarPorAnioEdicion(&b, anio);
                             break;
                         case '8':

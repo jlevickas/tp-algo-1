@@ -50,14 +50,15 @@ void seleccionarLibro(Biblioteca *b, Libro *l){
     }
 }
 
-char * buscarLibro(Biblioteca * b, char* libroDeseado) {
+void buscarLibro(Biblioteca * b, char* libroDeseado) {
     primero(b);
     while (!esUltimo(*b)){
         Libro libroActual = getDato(*b);
         char * tituloActual = get_titulo(libroActual);
 
         if (strcmp(tituloActual, libroDeseado) == 0) {
-            return (toString(libroActual));
+            printf("%s\n",toString(libroActual));
+            return;
         }
         else{
         siguiente(b);
@@ -186,7 +187,8 @@ void listarPorAnioEdicion(Biblioteca * b, int anioDeseado) {
         Libro libroActual = getDato(*b);
 
         if (get_anio_edicion(libroActual) == anioDeseado)
-           printf("Libro: %d\n",  toString(libroActual));
+           printf("Libro: %s\n",  toString(libroActual));
+           break;
         }
 
         siguiente(b);
@@ -203,7 +205,7 @@ void listarAutoresPorLetra(Biblioteca *b, char letra) {
 
         while (autor != NULL) {
             if (autor[0] == letra) {
-                printf("%s\n", autor);  //
+                printf("%s\n", autor);  
             }
             autor = strtok(NULL, ", ");
         }
