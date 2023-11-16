@@ -187,7 +187,7 @@ void listarPorAnioEdicion(Biblioteca * b, int anioDeseado) {
         Libro libroActual = getDato(*b);
 
         if (get_anio_edicion(libroActual) == anioDeseado)
-           printf("Libro: %s\n",  toString(libroActual));
+           printf("Libro: %s\n", toString(libroActual));
            break;
         }
 
@@ -228,9 +228,9 @@ void listarPorPalabraEnTitulo(Biblioteca *b, char *palabradeseada) {
         while (token != NULL) {
             
             if (strstr(token, palabradeseada)  != NULL) {
-               printf("Libro: %s\n", toString(libroActual));
+               printf("Libro: \n%s\n", toString(libroActual));
                break;  
-               }
+            }
 
             token = strtok(NULL, " ");
         }

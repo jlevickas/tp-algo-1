@@ -96,10 +96,10 @@ void main(){
                         case '7':
                             printf("Ingrese el anio deseado: ");
                             scanf("%d", &anio);
-                           listarPorAnioEdicion(&b, anio);
+                            listarPorAnioEdicion(&b, anio);
                             break;
                         case '8':
-                            leerChar(letra, "Ingrese la letra: ");
+                            leerChar(&letra, "Ingrese la letra: ");
                             listarAutoresPorLetra(&b, letra);
                             break;
                         case '9':

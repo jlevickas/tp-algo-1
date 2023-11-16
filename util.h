@@ -17,11 +17,12 @@ char * leerCadena(char * c, int size, char * msg){
     return c;
 }
 
-char leerChar(char c, char * msg){
-    printf(msg);
-    scanf(" %c", &c);
+char leerChar(char *c, char *msg) {
+    printf("%s", msg);
+    scanf(" %c", c);
     getchar();
-    return c;
+
+    return *c;
 }
 
 #endif
